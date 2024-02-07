@@ -18,12 +18,14 @@ route.post('/',async(req,res)=>{
     const data=new conversation({
         members:[req.body.member1,req.body.member2]
     })
+    console.log("Making a new conversation",req.body.member1,req.body.member2)
     try
     {
         const savedData=await data.save();
         res.status(200).json(savedData);
     }catch(error)
     {
+        console.log("Erro is ",error.message)
         res.status(500).json(error)
     }
 })

@@ -41,5 +41,14 @@ route.post('/get',async(req,res)=>{
      res.status(200).json(user);
 })
 
+route.get('/',async(req,res)=>{
+    try {
+        const allusers=await userSchema.find();
+        res.status(200).json(allusers);
+    } catch (error) {
+        res.status(500).json({result:"Fail in  fetching users"})
+    }
+})
+
 
 module.exports=route;
