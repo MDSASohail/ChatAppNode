@@ -6,7 +6,7 @@ route.post('/post',async(req,res)=>{
        const data=new message({
            conversationId:req.body.conversationId,
            senderId:req.body.senderId,
-           receiverid:req.body.receiverid,
+           receiverId:req.body.receiverId,
            text:req.body.text
        })
 
@@ -14,7 +14,8 @@ route.post('/post',async(req,res)=>{
              const sendData=await data.save();
              res.status(200).json(sendData);
        } catch (error) {
-            res.status(500).json(error)
+          console.log("Error in saving message is ",error.message)
+            res.status(500).json({result:error.message})
 
        }
 })

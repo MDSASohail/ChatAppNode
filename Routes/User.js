@@ -3,7 +3,7 @@ const userSchema=require('../Models/User')
 const cryptojs=require('crypto-js');
 route.post('/',async(req,res)=>{
     const passwordSecure=cryptojs.AES.encrypt(req.body.password,process.env.key).toString();
-    console.log("In user Post")
+    // console.log("In user Post")
     const data=new userSchema({
         fullName:req.body.fullName,
         email:req.body.email,

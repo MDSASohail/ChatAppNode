@@ -9,7 +9,8 @@ route.post('/',async(req,res)=>{
        const me=new messageSchemma({
         senderId:req.body.senderId,
         conversationId:req.body.conversationId,
-        text:req.body.text
+        text:req.body.text,
+        receiverId:req.body.receiverId
        })
 
 
