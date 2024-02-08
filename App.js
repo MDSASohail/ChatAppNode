@@ -12,7 +12,7 @@ const io = socketIO(server, {
         credentials: true
     }
 });
-const messageRoute=require('./Routes/message2')
+const messageRoute=require('./Routes/Message2')
 const conversationRoute=require('./Routes/Conversation2')
 const userRoute=require('./Routes/User')
 const dotenv=require('dotenv');
