@@ -6,7 +6,7 @@ const {Server}=require("socket.io");
 const server=http.createServer(app);
 const io =new Server(server, {
     cors: {
-        origin: "https://chat-app-node-gamma.vercel.app/",
+        origin: "https://mdsasohail.github.io/",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["my-custom-header"],
         credentials: true
