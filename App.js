@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   });
 const io =new Server(server, {
     cors: {
-        origin: "https://mdsasohail.github.io/",
+        origin: "https://mdsasohail.github.io",
         methods: ["GET", "POST", "PUT", "DELETE"],
         allowedHeaders: ["my-custom-header"],
         credentials: true
