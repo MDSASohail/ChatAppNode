@@ -2,9 +2,9 @@ const express=require('express');
 const mongodb=require('mongoose');
 const app=express();
 const http=require('http');
-const socketIO=require("socket.io");
+const {Server}=require("socket.io");
 const server=http.createServer(app);
-const io = socketIO(server, {
+const io =new Server(server, {
     cors: {
         origin: "*",
         methods: ["GET", "POST", "PUT", "DELETE"],
