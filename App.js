@@ -8,7 +8,7 @@ const io =new Server(server, {
     cors: {
         origin: "https://chat-app-node-gamma.vercel.app/",
         methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization"],
+        allowedHeaders: ["my-custom-header"],
         credentials: true
     }
 });
