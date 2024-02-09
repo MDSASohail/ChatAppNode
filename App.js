@@ -4,13 +4,7 @@ const app=express();
 const http=require('http');
 const {Server}=require("socket.io");
 const server=http.createServer(app);
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', "https://mdsasohail.github.io");
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', true);
-    next();
-  });
+
 const io =new Server(server, {
     cors: {
         origin: "https://mdsasohail.github.io",
@@ -19,6 +13,14 @@ const io =new Server(server, {
         credentials: true
     }
 });
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', "https://mdsasohail.github.io");
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+  });
 const messageRoute=require('./Routes/Message2')
 const conversationRoute=require('./Routes/Conversation2')
 const userRoute=require('./Routes/User')
