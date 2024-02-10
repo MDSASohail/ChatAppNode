@@ -14,6 +14,11 @@ const io =new Server(server, {
     }
 });
 
+io.use((socket, next) => {
+    socket.handshake.headers.origin = "https://mdsasohail.github.io";
+    next();
+});
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', "https://mdsasohail.github.io");
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
