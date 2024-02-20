@@ -43,12 +43,14 @@ const server=app.listen(8000,()=>{
     console.log("Server is started")
 })
 
-const io = socket(server, {
-    cors: {
-      origin: "https://mdsasohail.github.io",
-      credentials: true,
-    },
-  });
+//const io = socket(server, {
+ //   cors: {
+ //     origin: "https://mdsasohail.github.io",
+ //     credentials: true,
+ //   },
+  //});
+
+const io = socket(server);
 
 let users=[];
 
