@@ -2,7 +2,9 @@ const express=require('express');
 const mongodb=require('mongoose');
 const app=express();
 const socket=require('socket.io');
+const forgot=require('./Routes/ForgotRoute');
 const core=require('cors')
+
 app.use(core());
 
 
@@ -16,6 +18,7 @@ app.use(core());
 const messageRoute=require('./Routes/Message2')
 const conversationRoute=require('./Routes/Conversation2')
 const userRoute=require('./Routes/User')
+
 const dotenv=require('dotenv');
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
@@ -35,6 +38,8 @@ Connect();
 app.use('/message',messageRoute)
 app.use('/con',conversationRoute)
 app.use('/user',userRoute);
+app.use('/forgot',forgot);
+
 
 
 

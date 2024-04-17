@@ -2,7 +2,7 @@ const user=require('mongoose');
 const userS=new user.Schema({
     fullName:{type:String,required:true},
     email:{type:String,required:true,unique:true},
-    password:{type:String,required:true}
+    password:{type:String}
 },{timestamps:true});
 
 
