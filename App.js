@@ -2,7 +2,7 @@ const express=require('express');
 const mongodb=require('mongoose');
 const app=express();
 const socket=require('socket.io');
-const forgot=require('./Routes/ForgotRoute');
+
 const core=require('cors')
 
 app.use(core());
@@ -38,7 +38,7 @@ Connect();
 app.use('/message',messageRoute)
 app.use('/con',conversationRoute)
 app.use('/user',userRoute);
-app.use('/forgot',forgot);
+
 
 
 

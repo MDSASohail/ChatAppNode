@@ -13,7 +13,8 @@ route.post('/',async(req,res)=>{
         const savedData=await data.save();
         res.status(200).json(savedData);
     } catch (error) {
-        res.status(500).json(error)
+        console.log("Error in creating a user ")
+        res.status(500).json({result:"User already exist"})
     }
 })
 
@@ -104,6 +105,40 @@ route.put('/',async(req,res)=>{
                 console.log("Error in updatingggggggggggggg");
                 res.status(400).json({result:false});
             }
+})
+
+route.post('/findUser',async(req,res)=>{
+    console.log("Tryting to find a user ",req.body.email)
+    try {
+         const user=await userSchema.findOne({email:req.body.email});
+         console.log(user);
+         if(user)
+         {
+            console.log("In if")
+             res.status(200).json({result:true});
+             return;
+         }
+
+         res.status(200).json({result:false});
+    } catch (error) {
+        console.log("Error in find user");
+        res.status(400).json({result:false})
+    }
+})
+
+
+route.delete('/',async(req,res)=>{
+     console.log("To delete ",req.body.userId);
+    //  res.status(200).json({reslult:true})
+      try {
+          const deletedUser=await userSchema.findByIdAndDelete(req.body.userId);
+          console.log("Deleted user is ",deletedUser);
+          res.status(200).json({result:true});
+      } catch (error) {
+        console.log("Error in deleting a user",error.message);
+        res.status(500).json({result:false});
+
+      }
 })
 
 

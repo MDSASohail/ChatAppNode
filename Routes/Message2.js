@@ -20,6 +20,20 @@ route.post('/post',async(req,res)=>{
        }
 })
 
+route.post('/delete',async(req,res)=>{
+       console.log("Reques for deleting a conversations",req.body.data.conversationId);
+
+        try {
+              const deletedData=await message.deleteMany({conversationId:req.body.data.conversationId});
+              console.log(deletedData);
+              res.status(200).json({result:true});
+        } catch (error) {
+              console.log("Error in deleting");
+              res.status(500).json({result:false})
+        }
+       
+ })
+
 route.get('/:conversationId',async(req,res)=>{
            try {
                   const data=await message.find({conversationId:req.params.conversationId});
